@@ -1,0 +1,26 @@
+<div>
+  <app-search></app-search>
+  <app-filter [total]="getTotalCourses()" [free]="getTotalFreeCourses()" [premium]="getTotalPremiumCourses()"
+    (filterRadioButtonSelectionChanged)="onFilterRadioButtonChanged($event)"></app-filter>
+</div>
+<div class="course_container" *ngFor="let course of courses">
+  <div class="course_card">
+    <div>
+      <img [src]="course.image" alt="" width="240px" height="140px">
+    </div>
+    <div class="course_name">
+      <h4>{{course.name}}</h4>
+    </div>
+    <div class="course_description">
+      <p>{{course.description.slice(0,50)}}...</p>
+    </div>
+    <div class="details">
+      <div class="course_type" [ngStyle]="{color: course.type === 'Free' ? 'green' : 'red' }">{{course.type}}</div>
+      <div class="course_price"><b>Price:</b>${{course.price}}</div>
+    </div>
+    <div class="course_buttons">
+      <button class="btn btn_buy">Buy Now</button>
+      <button class="btn btn_show">Show Details</button>
+    </div>
+  </div>
+</div>
