@@ -93,9 +93,16 @@ export class CoursesComponent {
   }
 
   courseCountRadioButton: string = 'All';
+  searchText: string = "";
 
   onFilterRadioButtonChanged(data: string) {
     this.courseCountRadioButton = data;
-    console.log(this.courseCountRadioButton);
+    // console.log(this.courseCountRadioButton);
+  }
+
+  onSearchTextEntered(searchVal: string) {
+    this.searchText = searchVal;
+    console.log(this.searchText);
+    
   }
 }
